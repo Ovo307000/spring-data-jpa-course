@@ -8,10 +8,12 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Table(
         name = "student",
         uniqueConstraints = {
-                @UniqueConstraint(name = "student_email_unique", columnNames = "email")
+                @UniqueConstraint(name = "student_email_unique",
+                                  columnNames = "email")
         }
 )
-public class Student {
+public class Student
+{
 
     @Id
     @SequenceGenerator(
@@ -61,66 +63,79 @@ public class Student {
                    String firstName,
                    String lastName,
                    String email,
-                   Integer age) {
-        this.id = id;
+                   Integer age)
+    {
+        this.id        = id;
         this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.age = age;
+        this.lastName  = lastName;
+        this.email     = email;
+        this.age       = age;
     }
 
-    public Student() {
+    public Student()
+    {
 
     }
 
-    public Long getId() {
+    public Long getId()
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id)
+    {
         this.id = id;
     }
 
-    public String getFirstName() {
+    public String getFirstName()
+    {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName)
+    {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
+    public String getLastName()
+    {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName)
+    {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email)
+    {
         this.email = email;
     }
 
-    public Integer getAge() {
+    public Integer getAge()
+    {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(Integer age)
+    {
         this.age = age;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Student{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", age=" + age +
-                '}';
+               "id=" + id +
+               ", firstName='" + firstName + '\'' +
+               ", lastName='" + lastName + '\'' +
+               ", email='" + email + '\'' +
+               ", age=" + age +
+               '}';
     }
 }
