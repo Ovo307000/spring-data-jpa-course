@@ -8,11 +8,11 @@
         <version>2.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>com.ovo</groupId>
+    <artifactId>jpa-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
-    <description>Demo project for Spring Boot</description>
+    <name>jpa-demo</name>
+    <description>Demo project for Spring JPA</description>
 
     <properties>
         <java.version>15</java.version>
