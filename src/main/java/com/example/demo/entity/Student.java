@@ -4,8 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-import static javax.persistence.GenerationType.SEQUENCE;
-
 /**
  * This class represents the Student entity, mapping to the "student" table in the database.
  * The Lombok annotations are used to reduce boilerplate code.
@@ -38,9 +36,10 @@ public class Student
     @SequenceGenerator(name = "student_sequence",
                        sequenceName = "student_sequence",
                        allocationSize = 1)
-    @GeneratedValue(strategy = SEQUENCE,
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
                     generator = "student_sequence")
     @Column(name = "id",
+            nullable = false,
             updatable = false)
     private Long id;
 
