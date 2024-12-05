@@ -86,9 +86,6 @@ public class StudentInfoGenerator
     // 生成唯一全名的迭代器
     private static final Iterator<FullName> uniqueNameIterator = generateUniqueNames().iterator();
 
-    // 生成全局唯一的随机数生成器
-    private static final Random random = new Random();
-
     /**
      * 生成指定数量的学生信息列表
      *
