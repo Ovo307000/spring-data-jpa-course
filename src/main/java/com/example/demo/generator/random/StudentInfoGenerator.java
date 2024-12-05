@@ -181,6 +181,11 @@ public class StudentInfoGenerator
         return allNames;
     }
 
+    public static Long allNamesCount()
+    {
+        return (long) FIRST_NAME_LIST.size() * LAST_NAME_LIST.size();
+    }
+
     /**
      * FullName 类表示一个人的全名，包括名和姓。
      */
