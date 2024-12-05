@@ -76,4 +76,12 @@ public class Student
     @Column(name = "age",
             nullable = false)
     private Integer age;
+
+    public Student(final String firstName, final String lastName, final String email, final Integer age)
+    {
+        this.firstName = firstName;
+        this.lastName  = lastName;
+        this.email     = email;
+        this.age       = age;
+    }
 }
