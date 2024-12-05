@@ -17,8 +17,11 @@ import java.util.stream.IntStream;
 @Slf4j
 public class StudentInfoGenerator
 {
-    // 邮件域名常量
-    private static final String EMAIL_DOMAIN = "@example.com";
+    // 电子邮件域名列表
+    private static final Set<String> EMAIL_DOMAIN_LIST = Set.of("@gmail.com",
+            "@outlook.com",
+            "@yahoo.com",
+            "@hotmail.com");
 
     // 年龄范围常量
     private static final int BASE_AGE = 18;
@@ -27,7 +30,7 @@ public class StudentInfoGenerator
     private static final int AGE_VARIANCE = 50;
 
     // 常用英文名字列表
-    private static final List<String> FIRST_NAMES = List.of("Alice",
+    private static final List<String> FIRST_NAME_LIST = List.of("Alice",
             "Bob",
             "Charlie",
             "David",
@@ -55,7 +58,7 @@ public class StudentInfoGenerator
             "Zack");
 
     // 常用英文姓氏列表
-    private static final List<String> LAST_NAMES = List.of("Smith",
+    private static final List<String> LAST_NAME_LIST = List.of("Smith",
             "Johnson",
             "Williams",
             "Jones",
@@ -122,19 +125,26 @@ public class StudentInfoGenerator
     }
 
     /**
-     * 生成电子邮件地址
+     * 根据全名生成一个电子邮件地址
+     * 该方法结合了个人的名和姓，并随机选择一个域名来组成电子邮件地址
      *
-     * @param fullName 全名对象
+     * @param fullName 全名对象，包含名和姓
      * @return 生成的电子邮件地址
      */
     private static String generateEmail(final FullName fullName)
     {
+        // 将名转为小写并拼接
         return fullName.getFirstName()
                        .toLowerCase() +
-               "." +
+               // 将姓转为小写并拼接
                fullName.getLastName()
                        .toLowerCase() +
-               EMAIL_DOMAIN;
+               // 随机选择一个域名并拼接到电子邮件中
+               EMAIL_DOMAIN_LIST.stream()
+                                .skip(ThreadLocalRandom.current()
+                                                       .nextInt(EMAIL_DOMAIN_LIST.size()))
+                                .findFirst()
+                                .orElseThrow();
     }
 
     /**
@@ -157,9 +167,9 @@ public class StudentInfoGenerator
     {
         final List<FullName> allNames = new ArrayList<>();
 
-        for (final String firstName : FIRST_NAMES)
+        for (final String firstName : FIRST_NAME_LIST)
         {
-            for (final String lastName : LAST_NAMES)
+            for (final String lastName : LAST_NAME_LIST)
             {
                 allNames.add(new FullName(firstName, lastName));
             }
