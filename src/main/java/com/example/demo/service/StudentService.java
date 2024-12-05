@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * 学生服务类，负责处理与学生相关的业务逻辑
@@ -38,5 +39,17 @@ public class StudentService
         log.debug("Saving {} students: {}", STUDENT_COUNT, students);
         // 将生成的学生信息保存到数据库中
         this.studentRepository.saveAll(students);
+    }
+
+    public void showStudents()
+    {
+        // 记录初始化学生的调试信息
+        log.debug("Showing students");
+
+        // 生成学生信息
+        final List<Student> students = this.studentRepository.findAll();
+
+        // 记录保存学生信息的调试信息
+        log.debug("Showing {} students: {}", STUDENT_COUNT, students);
     }
 }
