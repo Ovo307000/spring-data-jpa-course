@@ -110,9 +110,9 @@ public class StudentInfoGenerator
     }
 
     /**
-     * 获取下一个唯一全名
+     * 从唯一全名迭代器中获取下一个全名对象
      *
-     * @return 唯一全名对象
+     * @return 下一个全名对象
      */
     private static FullName getNextFullName()
     {
@@ -148,9 +148,9 @@ public class StudentInfoGenerator
     }
 
     /**
-     * 生成一个随机年龄
+     * 生成一个随机的年龄，范围在 `BASE_AGE` 到 `BASE_AGE + AGE_VARIANCE` 之间
      *
-     * @return 随机生成的年龄，作为整数返回
+     * @return 随机生成的年龄
      */
     private static int generateAge()
     {
@@ -181,6 +181,11 @@ public class StudentInfoGenerator
         return allNames;
     }
 
+    /**
+     * 获取所有可能的全名组合数量
+     *
+     * @return 所有可能的全名组合数量
+     */
     public static Long allNamesCount()
     {
         return (long) FIRST_NAME_LIST.size() * LAST_NAME_LIST.size();
